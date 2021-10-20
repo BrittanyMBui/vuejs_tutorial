@@ -9,8 +9,9 @@
 </head>
 <body>
     <div id="app" v-cloak>
-        {{ greeting }}
-        <input @keyup.enter="greet" v-model="greeting" />
+        <!-- {{ greeting }} -->
+        <!-- <input @keyup.enter="greet(greeting)" v-model="greeting" /> -->
+        <login-form />
 
         <hr />
 
@@ -36,11 +37,33 @@
                 toggleBox() {
                     this.isVisible = !this.isVisible;
                 },
-                greet() {
-                    console.log(this.greeting);
+                greet(greeting) {
+                    console.log(greeting);
                 }
             }
         })
+
+        app.component('login-form', {
+            template: `
+                <form @submit="handleSubmit">
+                    <h1>{{ title }}</h1>
+                    <input type="email" />
+                    <input type="password" />
+                    <button>Log in</button>
+                </form>
+            `,
+            data() {
+                return {
+                    title: 'Login Form'
+                }
+            },
+            methods: {
+                handleSubmit() {
+                    console.log("Submitted")
+                }
+            }
+        })
+
         app.mount('#app')
     </script>
 </body>
