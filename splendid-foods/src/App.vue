@@ -19,9 +19,3 @@
       </header>
   <router-view/>
 </template>
-
-<style scoped>
-  h1 {
-    color: blue;
-  }
-</style>
