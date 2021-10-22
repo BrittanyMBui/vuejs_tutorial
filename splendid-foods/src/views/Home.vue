@@ -59,10 +59,16 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
+import food from '../food.json'
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      inventory: food,
+    }
+  },
   components: {
   }
 }
